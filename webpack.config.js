@@ -36,5 +36,7 @@ module.exports = {
   ],
   devServer: {
     contentBase: examplePath,
+    port:9000,
+    open: true
   },
 };

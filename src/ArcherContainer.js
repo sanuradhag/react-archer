@@ -276,6 +276,26 @@ export class ArcherContainer extends React.Component<Props, State> {
   generateAllArrowMarkers = (): React$Node => {
     return this.getSourceToTargets().map(({ source, target, label, style }: SourceToTargetType) => {
 
+      const sourceEl = this.getRectFromRef(this.state.refs[source.id]);
+      const targetEl = this.getRectFromRef(this.state.refs[target.id]);
+
+      let orient = 'auto';
+
+      // same lane target is below source
+      if((sourceEl.x === targetEl.x) && (sourceEl.y < targetEl.y)) {
+        // orient = '180';
+      }
+
+      // same lane target is above source
+      if((sourceEl.x === targetEl.x) && (sourceEl.y > targetEl.y)) {
+        // orient = '0';
+      }
+
+      // different lanes source lane before target lane
+      if((sourceEl.x < targetEl.x) && (sourceEl.y === targetEl.y)) {
+        // orient = '90';
+      }
+
       const strokeColor =
         (style && style.strokeColor) || this.props.strokeColor;
 
@@ -296,7 +316,7 @@ export class ArcherContainer extends React.Component<Props, State> {
           markerHeight={arrowThickness}
           refX="0"
           refY={arrowThickness / 2}
-          orient="auto"
+          orient={orient}
           markerUnits="strokeWidth"
         >
           <path d={arrowPath} fill={strokeColor} />
