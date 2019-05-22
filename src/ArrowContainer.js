@@ -110,7 +110,13 @@ export class ArrowContainer extends React.Component<Props, State> {
   };
 
   componentDidMount() {
+    console.log("component did mount");
     if (window) window.addEventListener('resize', this.refreshScreen);
+
+    console.log("props", this.props);
+    if (window) window.addEventListener('scroll', () => {
+      console.log("scrolled");
+    });
   }
 
   componentWillUnmount() {
@@ -314,7 +320,7 @@ export class ArrowContainer extends React.Component<Props, State> {
 
   render() {
     const SvgArrows = this.computeArrows();
-
+    console.log("props 2", this.props);
     return (
       <ArrowContainerContextProvider
         value={{

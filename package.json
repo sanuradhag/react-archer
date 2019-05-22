@@ -10,6 +10,17 @@
     "react-fast-compare": "^2.0.4",
     "resize-observer-polyfill": "1.5.0"
   },
+  "keywords": [
+    "react-arrows",
+    "react-svg-arrows",
+    "svg-arrows",
+    "draw-arrows"
+  ],
+  "author": {
+    "email": "saggunasekara@gmail.com",
+    "name": "Anuradha Gunasekara",
+    "url": "https://github.com/sanuradhag"
+  },
   "homepage": "",
   "repository": {
     "type": "",
