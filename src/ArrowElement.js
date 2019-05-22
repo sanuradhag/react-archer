@@ -4,9 +4,9 @@ import React from 'react';
 import isEqual from 'react-fast-compare';
 
 import {
-  type ArcherContainerContextType,
-  ArcherContainerContextConsumer,
-} from './ArcherContainer';
+  type ArrowContainerContextType,
+  ArrowContainerContextConsumer,
+} from './ArrowContainer';
 
 type OuterProps = {
   id: string,
@@ -17,10 +17,10 @@ type OuterProps = {
 };
 
 type InnerProps = OuterProps & {
-  context: ArcherContainerContextType,
+  context: ArrowContainerContextType,
 };
 
-export class ArcherElementNoContext extends React.Component<InnerProps> {
+export class ArrowElementNoContext extends React.Component<InnerProps> {
   static defaultProps = {
     relations: [],
   };
@@ -50,7 +50,7 @@ export class ArcherElementNoContext extends React.Component<InnerProps> {
     if (!this.props.context.registerTransitions) {
       throw new Error(
         `Could not find "registerTransition" in the context of ` +
-        `<ArcherElement>. Wrap the component in a <ArcherContainer>.`
+        `<ArrowElement>. Wrap the component in a <ArrowContainer>.`
       );
     }
 
@@ -72,7 +72,7 @@ export class ArcherElementNoContext extends React.Component<InnerProps> {
     if (!this.props.context.unregisterTransitions) {
       throw new Error(
         `Could not find "unregisterTransitions" in the context of ` +
-        `<ArcherElement>. Wrap the component in a <ArcherContainer>.`
+        `<ArrowElement>. Wrap the component in a <ArrowContainer>.`
       );
     }
 
@@ -84,7 +84,7 @@ export class ArcherElementNoContext extends React.Component<InnerProps> {
     if (!this.props.context.registerChild) {
       throw new Error(
         `Could not find "registerChild" in the context of ` +
-        `<ArcherElement>. Wrap the component in a <ArcherContainer>.`
+        `<ArrowElement>. Wrap the component in a <ArrowContainer>.`
       );
     }
 
@@ -95,7 +95,7 @@ export class ArcherElementNoContext extends React.Component<InnerProps> {
     if (!this.props.context.unregisterChild) {
       throw new Error(
         `Could not find "unregisterChild" in the context of ` +
-        `<ArcherElement>. Wrap the component in a <ArcherContainer>.`
+        `<ArrowElement>. Wrap the component in a <ArrowContainer>.`
       );
     }
 
@@ -115,10 +115,10 @@ export class ArcherElementNoContext extends React.Component<InnerProps> {
   }
 }
 
-const ArcherElementWithContext = (props: OuterProps) => (
-  <ArcherContainerContextConsumer>
-    {context => <ArcherElementNoContext {...props} context={context} />}
-  </ArcherContainerContextConsumer>
+const ArrowElementWithContext = (props: OuterProps) => (
+  <ArrowContainerContextConsumer>
+    {context => <ArrowElementNoContext {...props} context={context} />}
+  </ArrowContainerContextConsumer>
 );
 
-export default ArcherElementWithContext;
+export default ArrowElementWithContext;

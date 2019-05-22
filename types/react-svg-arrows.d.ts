@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export interface ArcherContainerProps {
+export interface ArrowContainerProps {
   /**
    * A size in px
    */
@@ -27,7 +27,7 @@ export interface ArcherContainerProps {
   className?: string;
 }
 
-export const ArcherContainer: React.ComponentType<ArcherContainerProps>;
+export const ArrowContainer: React.ComponentType<ArrowContainerProps>;
 
 export interface ArrowStyle {
   strokeColor?: string;
@@ -46,7 +46,7 @@ export interface Relation {
   style?: ArrowStyle;
 }
 
-export interface ArcherElementProps {
+export interface ArrowElementProps {
   /**
    * The id that will identify the Archer Element. Should only contain alphanumeric characters and standard characters that you can find in HTML ids.
    */
@@ -57,4 +57,4 @@ export interface ArcherElementProps {
   label?: React.ReactNode;
 }
 
-export const ArcherElement: React.ComponentType<ArcherElementProps>;
+export const ArrowElement: React.ComponentType<ArrowElementProps>;

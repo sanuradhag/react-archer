@@ -1,22 +1,22 @@
 {
-  "name": "react-archer",
-  "description": "Draw arrows between DOM elements in React",
-  "main": "lib/react-archer.js",
-  "module": "lib/react-archer.js",
-  "types": "types/react-archer.d.ts",
-  "version": "1.1.0",
+  "name": "react-svg-arrows",
+  "description": "Draw svg arrows between DOM elements in React",
+  "main": "lib/react-svg-arrows.js",
+  "module": "lib/react-svg-arrows.js",
+  "types": "types/react-svg-arrows.d.ts",
+  "version": "1.0.0",
   "license": "MIT",
   "dependencies": {
     "react-fast-compare": "^2.0.4",
     "resize-observer-polyfill": "1.5.0"
   },
-  "homepage": "https://github.com/pierpo/react-archer",
+  "homepage": "",
   "repository": {
-    "type": "git",
-    "url": "https://github.com/pierpo/react-archer"
+    "type": "",
+    "url": ""
   },
   "bugs": {
-    "url": "https://github.com/pierpo/react-archer/issues"
+    "url": ""
   },
   "scripts": {
     "dev": "webpack-dev-server --hot --progress --colors --config ./webpack.config.js",

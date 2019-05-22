@@ -9,7 +9,7 @@ module.exports = {
   output: {
     path: examplePath,
     filename: 'bundle.js',
-    library: 'reactArcher',
+    library: 'reactSvgArrows',
   },
   module: {
     rules: [

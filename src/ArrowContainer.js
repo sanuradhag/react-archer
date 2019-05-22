@@ -63,21 +63,21 @@ function computeCoordinatesFromAnchorPosition(
   }
 }
 
-export type ArcherContainerContextType = {
+export type ArrowContainerContextType = {
   registerChild?: (string, HTMLElement) => void,
   registerTransitions?: (string, Array<SourceToTargetType>) => void,
   unregisterChild?: string => void,
   unregisterTransitions?: string => void,
 };
 
-const ArcherContainerContext = React.createContext<ArcherContainerContextType>(
+const ArrowContainerContext = React.createContext<ArrowContainerContextType>(
   {},
 );
 
-export const ArcherContainerContextProvider = ArcherContainerContext.Provider;
-export const ArcherContainerContextConsumer = ArcherContainerContext.Consumer;
+export const ArrowContainerContextProvider = ArrowContainerContext.Provider;
+export const ArrowContainerContextConsumer = ArrowContainerContext.Consumer;
 
-export class ArcherContainer extends React.Component<Props, State> {
+export class ArrowContainer extends React.Component<Props, State> {
   arrowMarkerUniquePrefix: string;
 
   constructor(props: Props) {
@@ -276,25 +276,7 @@ export class ArcherContainer extends React.Component<Props, State> {
   generateAllArrowMarkers = (): React$Node => {
     return this.getSourceToTargets().map(({ source, target, label, style }: SourceToTargetType) => {
 
-      const sourceEl = this.getRectFromRef(this.state.refs[source.id]);
-      const targetEl = this.getRectFromRef(this.state.refs[target.id]);
-
       let orient = 'auto';
-
-      // same lane target is below source
-      if((sourceEl.x === targetEl.x) && (sourceEl.y < targetEl.y)) {
-        // orient = '180';
-      }
-
-      // same lane target is above source
-      if((sourceEl.x === targetEl.x) && (sourceEl.y > targetEl.y)) {
-        // orient = '0';
-      }
-
-      // different lanes source lane before target lane
-      if((sourceEl.x < targetEl.x) && (sourceEl.y === targetEl.y)) {
-        // orient = '90';
-      }
 
       const strokeColor =
         (style && style.strokeColor) || this.props.strokeColor;
@@ -334,7 +316,7 @@ export class ArcherContainer extends React.Component<Props, State> {
     const SvgArrows = this.computeArrows();
 
     return (
-      <ArcherContainerContextProvider
+      <ArrowContainerContextProvider
         value={{
           registerTransitions: this.registerTransitions,
           unregisterTransitions: this.unregisterTransitions,
@@ -353,9 +335,9 @@ export class ArcherContainer extends React.Component<Props, State> {
 
           <div style={{ height: '100%' }} ref={this.storeParent}>{this.props.children}</div>
         </div>
-      </ArcherContainerContextProvider>
+      </ArrowContainerContextProvider>
     );
   }
 }
 
-export default ArcherContainer;
+export default ArrowContainer;

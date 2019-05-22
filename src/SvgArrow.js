@@ -159,42 +159,31 @@ const SvgArrow = ({
 
     let pathString = `M${xs},${ys} ` + `C${xa1},${ya1} ${xa2}, ${ya2} ` + `${xe},${ye}`;
 
-
     // same lane target is below source
     if((startingPoint.x === endingPoint.x) && (startingPoint.y < endingPoint.y)) {
-        // const px = (xs + 150);
-        // const py = ((ye - ys) / 2) + ys;
         const py = ((ye - ys) / 2) + ys;
         const px = xs + ((1/py) * 19000);
         pathString = `M${xs},${ys} ` + `Q${px},${py} ${xe},${ye}`;
-
-        console.log(pathString);
     }
 
     // same lane target is above source
     if((startingPoint.x === endingPoint.x) && (startingPoint.y > endingPoint.y)) {
-        const px = (xs - 150);
         const py = ((ys - ye) / 2) + ye;
+        const px = xs - ((1/py)* 19000);
         pathString = `M${xs},${ys} ` + `Q${px},${py} ${xe},${ye}`;
     }
 
     // different lanes source lane before target lane
     if((startingPoint.x < endingPoint.x) && (startingPoint.y === endingPoint.y)) {
-        // const py = (ys - 100);
-        // const px = ((xe - xs) / 2) + xs;
-        // pathString = `M${xs},${ys} ` + `Q${px},${py} ${xe},${ye+ 12}`;
-
-
         const px = ((xe - xs) / 2) + xs;
         const py = ys - ((1/px)* 19900);
-
         pathString = `M${xs},${ys} ` + `Q${px},${py} ${xe},${ye+ 12}`;
     }
 
     // different lanes source lane after target lane
     if((startingPoint.x > endingPoint.x) && (startingPoint.y === endingPoint.y)) {
-        const py = (ys + 100);
         const px = ((xs - xe) / 2) + xe;
+        const py = ys + ((1/px) * 19900);
         pathString = `M${xs},${ys} ` + `Q${px},${py} ${xe},${ye-12}`;
     }
 

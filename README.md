@@ -1,20 +1,15 @@
-# react-archer
-[![CircleCI](https://circleci.com/gh/pierpo/react-archer.svg?style=svg)](https://circleci.com/gh/pierpo/react-archer)
+# react-svg-arrows
 
-🏹 Draw arrows between DOM elements in React 🖋
+Draw svg arrows between DOM elements in React. You can find the original project [react-archer!](https://github.com/pierpo/react-archer)
 
 ## Installation
 
-`npm install react-archer --save` or `yarn add react-archer`
+`npm install react-svg-arrows --save` or `yarn add react-svg-arrows`
 
 ## Example
 
-[Try it out!](https://pierpo.github.io/react-archer/)
-
-![Example](https://raw.githubusercontent.com/pierpo/react-archer/master/example.png)
-
 ```jsx
-import { ArcherContainer, ArcherElement } from 'react-archer';
+import { ArrowContainer, ArrowElement } from 'react-archer';
 
 const rootStyle = { display: 'flex', justifyContent: 'center' };
 const rowStyle = { margin: '200px 0', display: 'flex', justifyContent: 'space-between', }
@@ -24,9 +19,9 @@ const App = () => {
   return (
     <div>
 
-      <ArcherContainer strokeColor='red' >
+      <ArrowContainer strokeColor='red' >
         <div style={rootStyle}>
-          <ArcherElement
+          <ArrowElement
             id="root"
             relations={[{
               targetId: 'element2',
@@ -35,11 +30,11 @@ const App = () => {
             }]}
           >
             <div style={boxStyle}>Root</div>
-          </ArcherElement>
+          </ArrowElement>
         </div>
 
         <div style={rowStyle}>
-          <ArcherElement
+          <ArrowElement
             id="element2"
             relations={[{
               targetId: 'element3',
@@ -50,13 +45,13 @@ const App = () => {
             }]}
           >
             <div style={boxStyle}>Element 2</div>
-          </ArcherElement>
+          </ArrowElement>
 
-          <ArcherElement id="element3">
+          <ArrowElement id="element3">
             <div style={boxStyle}>Element 3</div>
-          </ArcherElement>
+          </ArrowElement>
 
-          <ArcherElement
+          <ArrowElement
             id="element4"
             relations={[{
               targetId: 'root',
@@ -66,9 +61,9 @@ const App = () => {
             }]}
           >
             <div style={boxStyle}>Element 4</div>
-          </ArcherElement>
+          </ArrowElement>
         </div>
-      </ArcherContainer>
+      </ArrowContainer>
 
     </div>
   );
@@ -79,7 +74,7 @@ export default App;
 
 ## API
 
-### `ArcherContainer`
+### `ArrowContainer`
 
 | Name | Type | Description |
 | - | - | - |
@@ -89,7 +84,7 @@ export default App;
 | `arrowThickness` | `number` | A size in `px`
 | `children` | `React.Node` |
 
-### `ArcherElement`
+### `ArrowElement`
 
 | Name | Type | Description |
 | - | - | - |
@@ -119,9 +114,3 @@ The `Style` type has the following shape:
   arrowThickness: number
 }
 ```
-
-## TODO
-
-- Automatic anchoring option
-- Options to customize the path shape more (straight line, right angle line, smoothed right angle path)
-- Add a Code Sandbox

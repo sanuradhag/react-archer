@@ -3,9 +3,9 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { type ShallowWrapper, shallow } from 'enzyme';
 
-import ArcherContainer from './ArcherContainer';
+import ArrowContainer from './ArrowContainer';
 
-describe('ArcherContainer', () => {
+describe('ArrowContainer', () => {
   const children = <div>child</div>;
 
   const defaultProps = {
@@ -39,7 +39,7 @@ describe('ArcherContainer', () => {
   };
 
   const shallowRenderAndSetState = (newState?: WrapperState) => {
-    const wrapper = shallow(<ArcherContainer {...defaultProps} />);
+    const wrapper = shallow(<ArrowContainer {...defaultProps} />);
 
     wrapper.setState(newState || defaultState);
 

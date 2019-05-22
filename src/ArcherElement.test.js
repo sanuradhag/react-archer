@@ -1,10 +1,10 @@
 // @flow
 import * as React from 'react';
 import { type ReactWrapper, mount } from 'enzyme';
-import ArcherElement from './ArcherElement';
-import { ArcherContainerContextProvider } from './ArcherContainer';
+import ArcherElement from './ArrowElement';
+import { ArrowContainerContextProvider } from './ArrowContainer';
 
-describe('ArcherElement', () => {
+describe('ArrowElementWithContext', () => {
   let registerChildMock;
   let unregisterChildMock;
   let registerTransitionsMock;
@@ -32,7 +32,7 @@ describe('ArcherElement', () => {
     unregisterChild,
     children
   }: MockArcherContainerType) => (
-    <ArcherContainerContextProvider
+    <ArrowContainerContextProvider
       value={{
         registerTransitions,
         unregisterTransitions,
@@ -41,7 +41,7 @@ describe('ArcherElement', () => {
       }}
     >
       {children}
-    </ArcherContainerContextProvider>
+    </ArrowContainerContextProvider>
   );
 
   // For triggering relations props changes in a less contrived way
@@ -126,7 +126,7 @@ describe('ArcherElement', () => {
 
       const wrapper: ReactWrapper = mountContainer(relations, newRelations);
 
-      // Trigger update in ArcherElement
+      // Trigger update in ArrowElement
       wrapper.find(PassThrough).find('div.foo').simulate('click');
 
       wrapper.update();
@@ -147,7 +147,7 @@ describe('ArcherElement', () => {
       // Will get called on mount regardless
       registerTransitionsMock.mockReset();
 
-      // Trigger update in ArcherElement
+      // Trigger update in ArrowElement
       wrapper.find(PassThrough).find('div.foo').simulate('click');
 
       wrapper.update();

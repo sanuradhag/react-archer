@@ -4,13 +4,13 @@ const TerserPlugin = require('terser-webpack-plugin');
 
 var config = {
   mode: 'production',
-  entry: './src/react-archer.js',
+  entry: './src/react-svg-arrows.js',
   output: {
     path: path.join(__dirname, 'lib'),
     publicPath: 'lib/',
-    filename: 'react-archer.js',
-    sourceMapFilename: 'react-archer.sourcemap.js',
-    library: 'ReactArcher',
+    filename: 'react-svg-arrows.js',
+    sourceMapFilename: 'react-svg-arrows.sourcemap.js',
+    library: 'ReactSVGArrows',
     libraryTarget: 'umd',
     globalObject: 'typeof self !== \'undefined\' ? self : this',
   },
